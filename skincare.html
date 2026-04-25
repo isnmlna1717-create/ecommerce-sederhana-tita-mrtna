@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Produk Skincare</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      background: #fff7f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      display: flex;
+      gap: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .left img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .right {
+      flex: 1;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #d81b60;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #e91e63;
+      margin: 10px 0;
+    }
+
+    .desc {
+      margin: 15px 0;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .section {
+      margin: 15px 0;
+    }
+
+    .section h4 {
+      margin-bottom: 5px;
+      color: #c2185b;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-buy {
+      background: #ec407a;
+      color: white;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Gambar Produk -->
+  <div class="left">
+    <img src="skincare.jpeg" width="200">
+  </div>
+
+  <!-- Detail Produk -->
+  <div class="right">
+    <div class="title">Bright Glow Serum</div>
+    <div class="price">Rp 135.000</div>
+
+    <div class="desc">
+      Serum wajah dengan formula ringan yang membantu mencerahkan kulit,
+      menyamarkan noda hitam, dan membuat wajah tampak glowing alami.
+    </div>
+
+    <div class="section">
+      <h4>Manfaat:</h4>
+      <ul>
+        <li>Mencerahkan kulit kusam</li>
+        <li>Menyamarkan noda hitam</li>
+        <li>Melembapkan kulit</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h4>Kandungan:</h4>
+      <ul>
+        <li>Niacinamide</li>
+        <li>pomegranate</li>
+        <li>Hyaluronic Acid</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <label>Pilih Varian:</label>
+      <select id="varian">
+        <option>25 ml</option>
+        <option>60 ml</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <label>Jumlah:</label>
+      <input type="number" id="jumlah" value="1" min="1">
+    </div>
+
+    <button class="btn btn-buy" onclick="beli()">Beli Sekarang</button>
+    <button class="btn btn-wa" onclick="wa()">Pesan via WhatsApp</button>
+  </div>
+
+</div>
+
+<script>
+  function beli() {
+    let varian = document.getElementById("varian").value;
+    let jumlah = document.getElementById("jumlah").value;
+    alert("Terima kasih! Anda membeli " + varian + " sebanyak " + jumlah);
+  }
+
+  function wa() {
+    let varian = document.getElementById("varian").value;
+    let jumlah = document.getElementById("jumlah").value;
+
+    let pesan = "Halo, saya ingin membeli Bright Glow Serum\nVarian: " + varian + "\nJumlah: " + jumlah;
+
+    let url = "https://wa.me/6281324079491?text=" + encodeURIComponent(pesan);
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
